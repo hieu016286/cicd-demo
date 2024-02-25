@@ -28,7 +28,8 @@ jobs:
           script: |
             cd cicd-demo
             git pull origin main
-            docker compose build
-            docker compose restart
+            docker compose build --no-cache
+            docker compose down
+            docker compose up -d
             
     needs: [preparation] 
